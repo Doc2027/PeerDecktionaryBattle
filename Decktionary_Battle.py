@@ -18,6 +18,7 @@ suits = ["Hearts", "Spades", "Clubs", "Diamonds"]
 face_cards = ["Queens", "Jacks"]
 ace_card = "Ace"
 ##combine numbers and suits to make 36 cards (9 each)
+# Suggestion: Combine all deck creation loops into one function maybe
 for suit in suits:
     for value in range(2,10):
         deck.append(f"{value} of {suit}")
@@ -30,6 +31,7 @@ for suit in suits:
         deck.append(f"{ace_card} of {suit}")
 
 ##shuffle the deck of cards 
+# Suggestion: Add a print statement so it confirms the decks been shuffled
 random.shuffle(deck)
 ###print("shuffled deck", deck)
 
@@ -37,6 +39,7 @@ random.shuffle(deck)
 player1_deck = []
 player2_deck = []
 
+# Suggestion: I think adding a function for dealing cards to players would with the repeated code
 for i in range(8):
     player1_deck.append(deck.pop(0))
     player2_deck.append(deck.pop(0))
@@ -61,10 +64,12 @@ player2_card_display_function(player2, player2_deck,answer_yes,answer_no,player1
 
 #seperating the function seperatly 
 #player 1 plays cards
+# Suggestion: I hadnt heard of muck before so had to look it up so i suggest adding to the game that its neccesary
 the_muck= []
 scores = {"player1":0, "player2":0}
 
 #repeats the gaming process until the certain scoring criterias are met 
+# Suggestion: Having a counter maybe helpful to track how many rounds have been played
 while True:
     #allows players to put cards in the deck and pick card from deck if wanted 
     player1_turn_function(the_muck, player1, player2, player1_deck, deck)
@@ -80,7 +85,7 @@ while True:
     card_values_function(player1, player2, player1_card,player2_card,face_card_values,scores)
     #ends the game and saves the results depending on scoring which determines how the game is won 
     end_loop = scoring_system_function(player1, player2, player1_deck, player2_deck, scores)
-
+    # Suggestion: Add an end of the game message
     if end_loop:
         break
     
